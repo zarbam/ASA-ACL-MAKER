@@ -21,9 +21,9 @@ cat ip_list.txt |  while read output
 do
         IP="$(ipcalc -n $output | awk '{ if ($1 == "Address:") { print $2 }}')"
         NM="$(ipcalc -n $output | awk '{ if ($1 == "Netmask:") { print $2 }}')"
-        echo object network obj-$IP
+        echo object network obj-$IP    #Change your naming prefix here do not remove the variable $IP
         echo subnet $IP $NM
-        echo description 
+        echo description # ADD A DESCRIPTION HERE
         echo ex
 done
 echo "############################### END HOSTS ###############################"
